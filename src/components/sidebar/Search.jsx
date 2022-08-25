@@ -2,7 +2,7 @@ import React from "react";
 import searchIcon from "../../assets/search.svg";
 import timesIcon from "../../assets/times.svg";
 
-// TODO: yo, debounce this search?
+// FIXME: yo, debounce this search? or it'll 404
 export const Search = ({ searchQuery, setSearchQuery }) => {
   const searchIsEmpty = searchQuery === "";
 

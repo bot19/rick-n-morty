@@ -52,5 +52,9 @@ export default App;
 
 /**
  * TODO: don't mount Page at all if mobile
- * TODO: finish styling ...got bored
+ *
+ * finalise:
+ * 1. debounce search
+ * 2. main section scroll on long episode list
+ * 3. styling finish: icons & shadows
  */
