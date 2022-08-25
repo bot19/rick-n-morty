@@ -27,6 +27,7 @@ function App() {
     getApiData();
   }, [currentPage, searchQuery]);
 
+  // TODO: one day... loading states
   return (
     <>
       <Sidebar
