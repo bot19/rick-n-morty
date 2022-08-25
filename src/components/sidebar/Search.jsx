@@ -7,7 +7,6 @@ export const Search = ({ searchQuery, setSearchQuery }) => {
   const [localQuery, setLocalQuery] = useState(searchQuery);
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      console.log("localQuery", localQuery);
       setSearchQuery(localQuery);
     }, 500);
 
