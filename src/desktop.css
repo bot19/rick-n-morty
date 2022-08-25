@@ -53,4 +53,9 @@
   .info {
     margin-bottom: 2em;
   }
+
+  .right {
+    overflow-wrap: break-word;
+    word-break: break-all;
+  }
 }

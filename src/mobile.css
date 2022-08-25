@@ -43,10 +43,16 @@ main {
   display: flex;
   padding: 1em;
   border-bottom: 1px solid grey;
+  cursor: pointer;
 }
 
 .item.is-active {
-  /* TODO: active gradient */
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(30, 144, 255, 0.33) 100%
+  );
 }
 
 .item.is-active .item__highlight {

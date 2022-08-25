@@ -1,35 +1,46 @@
 import React from "react";
 
+// FIXME: long episode list not producing y-scroll, what?
 export const Page = ({ currentChar }) => {
+  const { gender, episode, image, location, name, species, status } =
+    currentChar || {};
+
+  if (!currentChar)
+    return (
+      <main>
+        <header>
+          <h1>Yo.</h1>
+          <h2>Select a character to see more info.</h2>
+        </header>
+      </main>
+    );
+
   return (
     <main>
       <header>
-        <h1>name that is really long and shouldn't wrap</h1>
-        <h2>location that is also really long and shouldn't wrap</h2>
+        <h1>{name}</h1>
+        <h2>{location.name}</h2>
       </header>
       <section>
         <div className="left">
-          <img
-            src="https://robohash.org/2600:6c5e:357f:e274:dd4:78bb:b35f:924d.png"
-            alt="thumb"
-            className=""
-          />
+          <img src={image} alt={`thumbnail of ${name}`} />
           <div className="info">
             <div>
-              <b>species</b> species
+              <b>species</b> {species}
             </div>
             <div>
-              <b>species</b> species
+              <b>status</b> {status}
             </div>
             <div>
-              <b>species</b> species
+              <b>gender</b> {gender}
             </div>
           </div>
         </div>
         <div className="right">
-          <div>
-            <b>episodes</b> episodes
-          </div>
+          <b>episodes</b>
+          {episode.map((ep) => {
+            return <div key={ep}>{ep}</div>;
+          })}
         </div>
       </section>
     </main>
