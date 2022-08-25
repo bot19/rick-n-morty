@@ -1,11 +1,26 @@
 import React from "react";
 
-export const Pagination = () => {
+// FIXME: if you spam next fast enough, it is possible to go to last page +1 & crash app ...lol :D
+export const Pagination = ({ pageData, currentPage, setCurrentPage }) => {
+  const { next, pages, prev } = pageData || {};
+
   return (
     <div className="pagination">
-      <button>prev</button>
-      <span>Page 1/26</span>
-      <button>next</button>
+      <button
+        disabled={!prev}
+        onClick={() => setCurrentPage((prev) => prev - 1)}
+      >
+        prev
+      </button>
+      <span>
+        Page {currentPage}/{pages}
+      </span>
+      <button
+        disabled={!next}
+        onClick={() => setCurrentPage((prev) => prev + 1)}
+      >
+        next
+      </button>
     </div>
   );
 };

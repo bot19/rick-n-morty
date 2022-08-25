@@ -10,10 +10,10 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
 
-  // get query here (once)
+  // get data here
   const getApiData = async () => {
     const response = await fetch(
-      `https://rickandmortyapi.com/api/character/?page=${currentPage}`
+      `https://rickandmortyapi.com/api/character/?page=${currentPage}&name=${searchQuery}`
     ).then((response) => response.json());
     // TODO: handle error
 
@@ -22,14 +22,10 @@ function App() {
     setPageData(response?.info);
   };
 
-  // get data on init
+  // get data on init / update data on conditions
   useEffect(() => {
     getApiData();
-  }, []);
-
-  // have state here to control
-
-  console.log("test", charData);
+  }, [currentPage, searchQuery]);
 
   return (
     <>

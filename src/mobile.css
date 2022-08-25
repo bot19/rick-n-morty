@@ -34,6 +34,20 @@ main {
   font-size: 1em;
 }
 
+.icon-search,
+.icon-times {
+  position: absolute;
+  top: 0;
+  left: auto;
+  right: 0;
+  height: 1.8em;
+  padding: 0.5em;
+}
+
+.icon-times {
+  cursor: pointer;
+}
+
 .list {
   overflow-y: auto;
 }

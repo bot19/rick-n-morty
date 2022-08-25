@@ -4,10 +4,8 @@ import { List } from "./List";
 import { Pagination } from "./Pagination";
 
 export const Sidebar = ({
-  charData,
-  setcharData,
+  charData = [],
   pageData,
-  setPageData,
   currentChar,
   setCurrentChar,
   currentPage,
@@ -19,7 +17,9 @@ export const Sidebar = ({
     <aside>
       <Search {...{ searchQuery, setSearchQuery }} />
       <List {...{ charData, currentChar, setCurrentChar }} />
-      <Pagination {...{ pageData, currentPage, setCurrentPage }} />
+      {charData.length > 19 && (
+        <Pagination {...{ pageData, currentPage, setCurrentPage }} />
+      )}
     </aside>
   );
 };
