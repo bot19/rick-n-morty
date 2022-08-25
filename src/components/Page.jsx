@@ -1,6 +1,5 @@
 import React from "react";
 
-// FIXME: long episode list not producing y-scroll, what?
 export const Page = ({ currentChar }) => {
   const { gender, episode, image, location, name, species, status } =
     currentChar || {};
@@ -38,7 +37,7 @@ export const Page = ({ currentChar }) => {
         </div>
         <div className="right">
           <b>episodes</b>
-          {episode.map((ep) => {
+          {(episode || []).map((ep) => {
             return <div key={ep}>{ep}</div>;
           })}
         </div>

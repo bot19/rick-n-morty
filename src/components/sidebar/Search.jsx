@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import searchIcon from "../../assets/search.svg";
 import timesIcon from "../../assets/times.svg";
 
-// FIXME: yo, debounce this search? or it'll 404
 export const Search = ({ searchQuery, setSearchQuery }) => {
-  const searchIsEmpty = searchQuery === "";
+  // debounce search; no hitting API millions of times
+  const [localQuery, setLocalQuery] = useState(searchQuery);
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      console.log("localQuery", localQuery);
+      setSearchQuery(localQuery);
+    }, 500);
+
+    return () => clearTimeout(timeoutId);
+  }, [localQuery]);
+
+  const searchIsEmpty = localQuery === "";
 
   return (
     <div className="top">
@@ -17,13 +27,13 @@ export const Search = ({ searchQuery, setSearchQuery }) => {
             src={timesIcon}
             className="icon-times"
             alt="icon times"
-            onClick={() => setSearchQuery("")}
+            onClick={() => setLocalQuery("")}
           />
         )}
         <input
           type="text"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          value={localQuery}
+          onChange={(e) => setLocalQuery(e.target.value)}
           placeholder="Search here"
         />
       </div>

@@ -7,10 +7,8 @@
 
   main {
     display: block;
-    /* TODO: remove when sidebar shadow in */
-    border-left: 1px solid grey;
     flex-grow: 1;
-    overflow: hidden;
+    overflow: auto;
   }
 
   header {
@@ -51,10 +49,16 @@
 
   .pagination button {
     cursor: pointer;
+    background-color: white;
+    border: 1px solid grey;
+    outline: none;
+    border-radius: 0.33em;
+    display: flex;
   }
 
   .pagination button:disabled {
     cursor: default;
+    opacity: 0.5;
   }
 
   .info {

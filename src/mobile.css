@@ -3,7 +3,7 @@ aside {
   height: 100vh;
   display: grid;
   grid-template-rows: min-content auto min-content;
-  /* TODO: needs side shadow */
+  box-shadow: 10px 0px 21px -10px rgba(0, 0, 0, 0.2);
 }
 
 main {
@@ -96,14 +96,23 @@ h3 {
 
 .pagination {
   height: 40px;
-  border-top: 1px solid black;
-  /* TODO: turn this into a drop shadow later */
   display: grid;
   grid-template-columns: min-content auto min-content;
   padding: 1em;
+  box-shadow: 0px -4px 21px -10px rgba(0, 0, 0, 0.33);
 }
 
 .pagination span {
   text-align: center;
+  align-self: center;
+}
+
+.pagination button {
+  display: flex;
+}
+
+.pagination button img {
+  width: 2em;
+  height: 2em;
   align-self: center;
 }

@@ -1,6 +1,5 @@
 import React from "react";
 
-// TODO: if click on same char again, clear it?
 export const ListItem = ({ char, currentChar, setCurrentChar }) => {
   const { name, image, location, species } = char;
   const isActive = char.id === currentChar?.id;
@@ -8,7 +7,15 @@ export const ListItem = ({ char, currentChar, setCurrentChar }) => {
   return (
     <div
       className={`item ${isActive ? "is-active" : ""}`}
-      onClick={() => setCurrentChar(char)}
+      onClick={() =>
+        setCurrentChar((prevChar) => {
+          // allow 2nd click to unselect
+          if (prevChar?.id === char.id) return null;
+
+          // otherwise select char
+          return char;
+        })
+      }
     >
       <div className="item__highlight" />
       <img src={image} alt={`thumbnail of ${name}`} />
