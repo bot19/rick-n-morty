@@ -3,6 +3,7 @@ aside {
   height: 100vh;
   display: grid;
   grid-template-rows: min-content auto min-content;
+  /* TODO: needs side shadow */
 }
 
 main {
@@ -19,7 +20,7 @@ main {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
-  width: 80%;
+  width: calc(100% - 5em);
   height: 3em;
   margin: 0 auto;
 }
@@ -44,6 +45,14 @@ main {
   border-bottom: 1px solid grey;
 }
 
+.item.is-active {
+  /* TODO: active gradient */
+}
+
+.item.is-active .item__highlight {
+  display: block;
+}
+
 .item__highlight {
   display: none;
   background-color: dodgerblue;
@@ -64,4 +73,18 @@ main {
 
 h3 {
   margin: 0;
+}
+
+.pagination {
+  height: 40px;
+  border-top: 1px solid black;
+  /* TODO: turn this into a drop shadow later */
+  display: grid;
+  grid-template-columns: min-content auto min-content;
+  padding: 1em;
+}
+
+.pagination span {
+  text-align: center;
+  align-self: center;
 }

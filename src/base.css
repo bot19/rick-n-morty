@@ -22,6 +22,12 @@ body {
 
 #root {
   height: 100vh;
+  display: flex;
+}
+
+h1,
+h2 {
+  line-height: 1;
 }
 
 /* a {
