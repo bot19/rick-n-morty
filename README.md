@@ -1,1 +1,1 @@
-# rick-n-morty-chars
+# rick-n-morty
