@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Page = () => {
+export const Page = ({ currentChar }) => {
   return (
     <main>
       <header>

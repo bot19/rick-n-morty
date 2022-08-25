@@ -1,20 +1,60 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Sidebar } from "./components/sidebar";
 import { Page } from "./components/Page";
 
 function App() {
-  // const [count, setCount] = useState(0);
+  // TODO: many states, useReducer?
+  const [charData, setcharData] = useState([]);
+  const [pageData, setPageData] = useState({});
+  const [currentChar, setCurrentChar] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchQuery, setSearchQuery] = useState("");
 
   // get query here (once)
+  const getApiData = async () => {
+    const response = await fetch(
+      `https://rickandmortyapi.com/api/character/?page=${currentPage}`
+    ).then((response) => response.json());
+    // TODO: handle error
+
+    // update the state; TODO: IF response; handle !response
+    setcharData(response?.results);
+    setPageData(response?.info);
+  };
+
+  // get data on init
+  useEffect(() => {
+    getApiData();
+  }, []);
 
   // have state here to control
 
+  console.log("test", charData);
+
   return (
     <>
-      <Sidebar />
-      <Page />
+      <Sidebar
+        {...{
+          charData,
+          setcharData,
+          pageData,
+          setPageData,
+          currentChar,
+          setCurrentChar,
+          currentPage,
+          setCurrentPage,
+          searchQuery,
+          setSearchQuery,
+        }}
+      />
+      <Page currentChar={currentChar} />
     </>
   );
 }
 
 export default App;
+
+/**
+ * TODO: don't mount Page at all if mobile
+ * TODO: finish styling ...got bored
+ */
